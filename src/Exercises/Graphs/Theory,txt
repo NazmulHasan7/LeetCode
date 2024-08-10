@@ -1,0 +1,82 @@
+|--------------------> Graph Theory
+
+Graph G is an ordered pair
+of a set V of vertices and
+a set E of edges
+
+G = (V, E)
+
+Edge --> Connects to vertices
+Edges can be directed (origin -> destination) (u, v) or undirected {u, v}
+Undirected edges are represented with {}
+
+Weighted Graph -> Sometimes in a graph some connections are preferable to others
+Edges carry the weight
+
+
+|---------------------> Properties of Graph
+|V| -> Number of vertices in set V
+|E| -> Number of edges in set E
+
+Self Loop -> Same source and destination
+Multi-edge -> Multiple edges from same source to destination
+
+Self loop and Multi-edge creates complexity while working with graphs
+
+Simple Graph -> A graph with no edges or self-loop
+For a simple directed graph with 4 vertices v1, v2, v3, v4
+then Number of edges = 4 * 3 = 12
+
+So, maximum number of edges of directed graph -->
+For vertices n vertices => (n * (n-1))
+For undirected => (n * (n-1)) / 2
+
+
+|-----------------> Path in a graph
+Walk -> A sequence of vertices where each adjacent pair is connected by an edge
+
+Simple Path -> A walk in which no vertices (thus no edges) are repeated
+
+Trail -> A walk in which no edges are repeated
+
+Strongly Connected Graph -> Path from any vertex to any other vertex
+
+Closed Walk -> Length of walk > 0 and Starts and ends at the same vertex
+
+Cycle | Simple Cycle Walk -> A walk in which no vertex is repeated other than the start and end
+
+Acyclic Graph -> Graph with no cycle. Example - Tree
+Directed acyclic graph (DAG)
+
+
+|----------------------------> Graph Representation
+Space Complexity -> O(|V| + |E|)
+Time Complexity of Linear Search (Finding adjacent nodes) -> O(|E|)
+
+O(|E|) => O(|V^2|) as For vertices n vertices, edges => (n * (n-1))
+
+Graph Representation -> using Adjacency Matrix
+A 2D Matrix of size V * V
+
+Axy -> 1 if edge from x to y | 0 if no edge from x to y
+
+Linear Search ->
+Go to vertex list -> find the index of Node
+The iterate only that row of the adjacency matrix
+Time Complexity -> O(V)
+
+
+|---------------------> BFS
+Time Complexity -> O (V + E)
+
+
+
+|---------------------------> GRAPH Cycle Detection
+Undirected Graph Cycle Detection -->
+DFS --> Pass the current node with its parent and then check if it's neighbors are already visited or not
+---------> Don't visit the parent node, if the node is already visited and it is not the parent node then there is a cycle
+BFS --> Push node with its parent, if the node is already visited and it is not the parent node then there is a cycle
+
+Directed Graph Cycle Detection -->
+DFS --> Maintain two arrays for visited nodes and visited nodes in current recursion call
+Check if the node is already visited in the current recursion call, if it is already visited then there is a cycle

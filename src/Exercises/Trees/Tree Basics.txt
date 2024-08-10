@@ -1,0 +1,35 @@
+--> # Basic of Tree Data Structure # <--
+
+For N nodes
+|-> There are N-1 edges
+
+Depth of an element x => Length of path from root to x
+or no of edges from root to x
+
+Height of x => No of edges in the longest path from x to leaf
+
+Height of the tree => Height of the root (Longest path from root to leaf)
+
+--> # # # Binary Tree # # # <--
+
+1. Strict of proper Binary Tree
+--> Each node can have either 0 or 2 nodes
+
+2. Complete Binary Tree
+--> All the levels except the last one are completely filled
+Nodes at last level are as left as possible
+
+3. Perfect Binary Tree
+--> All the levels are completely filled
+
+Maximum nodes at level i => 2**i
+
+Maximum no of nodes in a tree with height h, n => 2**(h+1) - 1
+h => log2(n+1) - 1
+
+4. Balances Binary Tree -->
+    |Height of left subtree - Height of right subtree| <= k
+
+
+--> # # # Binary Search Tree
+Left node <= root <= Right node

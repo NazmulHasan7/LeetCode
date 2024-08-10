@@ -1,0 +1,47 @@
+
+|--------------> Topological Sorting <---------------|
+Topological sort only works with DAG (Directed Acyclic Graph)
+Since, in undirected and cyclic graph it is not possible to know which one comes first
+topological sort is not applicable for them
+
+|--> For any edge u (source) should come before v (destination)
+
+|--> Intuition --> |----------> DFS <--------------|
+    push the neighbors in the stack then push the parent node
+    so that when we pop from the stack we get the topological sorted order which is
+    source u comes before destination v
+
+    TIME -> O (V + E)
+    Space -> O (V + V)
+
+    public static void dfs(ArrayList<ArrayList<Integer>> adj, Stack<Integer> stack, boolean[] visited, int node) {
+        visited[node] = true;
+        for (int neighbor : adj.get(node)) {
+            if (!visited[neighbor])
+                dfs(adj, stack, visited, neighbor);
+        }
+        stack.push(node);
+    }
+    public static int[] topoSort(int V, ArrayList<ArrayList<Integer>> adj) {
+        boolean[] visited = new boolean[V];
+        Stack<Integer> stack = new Stack<>();
+
+        for (int u=0; u<V; u++)
+            if (!visited[u])
+                dfs(adj, stack, visited, u);
+
+        int[] answer = new int[V];
+        int idx = 0;
+        while (!stack.isEmpty())
+            answer[idx++] = stack.pop();
+        return answer;
+    }
+
+
+|--> Intuition --> |----------> BFS <--------------|
+KAHN'S Algorithm --> Count of In-degree
+In-degree -> Count of incoming edges
+
+1. Vertices with 0 in-degree are visited and pushed in the queue
+2. pop from queue and visit its neighbors and decrease in degree by 1
+3. if the updated in-degree of the neighbor is 0 then push it to the queue

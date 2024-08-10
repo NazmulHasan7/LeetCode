@@ -1,0 +1,20 @@
+Heap Data Structure
+--> Heap is a complete binary tree that satisfies the heap property.
+Complete binary tree - Each node has 2 children or left associated
+
+Max Heap --> Root > child
+Min Heap --> Root < child
+
+Printing the tree in level order --> Consider as an array
+Node --> i
+Parent --> floor (i/2)
+Left child --> 2 * i
+Right child --> 2 * i + 1
+
+
+Heap insert O(log(n)) --> Insert at the last level's left most position
+then maintain the heap property (Swap if required from leaf to root)
+
+Heap delete O(log(n)) --> Delete the root and the last level's right most
+position takes place of the root, then maintain the heap property
+

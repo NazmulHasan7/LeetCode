@@ -1,0 +1,22 @@
+1. Moore's Voting Algorithm
+--> Find the majority elements in an Array
+problem --> 169
+Resource - https://www.youtube.com/watch?v=7pnhv842keE
+
+2. Reservoir Sampling Algorithm
+--> Get random element from a list with equal probability
+problem --> 382
+Resource -
+
+3. Monotonic Stack
+--> Stack maintaining an increasing or decreasing order
+Resource -> https://www.youtube.com/watch?v=Dq_ObZwTY_Q
+Leetcode -> https://leetcode.com/discuss/study-guide/2347639/A-comprehensive-guide-and-template-for-monotonic-stack-based-problems
+
+
+4. Backtracking - Abdul Bari
+--> Brute Force Approach
+Backtracking -> Not for optimization problem
+Can be applicable when multiple solutions are available and all the solutions are required
+
+Follows DFS
