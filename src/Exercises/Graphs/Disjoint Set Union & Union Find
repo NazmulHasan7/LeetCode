@@ -1,0 +1,25 @@
+Intersection of disjoint set is null
+
+Union Find ->
+    Operation 1 -> Combine 2 given sets
+    Operation 2 -> Tell if 2 members belong to the same set or not
+
+int find(int[] parent, int i) {
+    if (i == parent[i]) // element == parent
+        return i;
+    return find(parent[i], parent);
+}
+
+Disjoint Set Union DSU => https://www.youtube.com/watch?v=AsAdKHkITBQ
+Path Compression => https://www.youtube.com/watch?v=iH3XVIVzl7M&t=795s
+
+How to decide the parent ?
+    => When the ranks are equal -> Make anyone parent and increase the rank of the parent by 1
+    => When the ranks are not same then node with higher rank becomes the parent
+
+
+Cycle Detection using DSU
+--> Process each edge
+        --> If parent of the nodes are same then there is a cycle
+        --> If not same then make union
+
