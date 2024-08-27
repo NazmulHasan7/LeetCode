@@ -7,8 +7,10 @@ public class Disjoint_Set_Union {
     // Path Compression
     public static int find(int[] parent, int i) {
         if (i == parent[i]) // element == parent
-            return i;
+            return i; // return the ultimate main parent
+        // path compression, assign the main leader
         return parent[i] = find(parent, parent[i]);
+        // now element's parent directly points to the parent of the set
     }
     // Union -> Make parent based on rank
     /* How to decide the parent ?
@@ -27,7 +29,7 @@ public class Disjoint_Set_Union {
             parent[xParent] = yParent;
         } else {
             parent[xParent] = yParent;
-            rank[xParent]++;
+            rank[yParent]++;
         }
     }
 }
