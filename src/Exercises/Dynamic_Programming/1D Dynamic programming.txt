@@ -1,0 +1,8 @@
+Basic theories of 1D dynamic programming
+
+Repeating sub-problem
+    For instance, calculating a same process more than once
+
+Memoization -> Store the result and use it whenever it is needed
+
+1D DP array -> 1(Changing variable)
