@@ -1,0 +1,36 @@
+
+
+==> Dijkstra's Algorithms
+    Shortest path from source to destination
+
+Dijkstra's Algorithms can work with directed and undirected graphs
+Cannot work with graphs with negative edges -> As it cannot detect negative cycle
+Time Complexity => V*log(v) + E*log(v))
+
+
+
+
+
+==> Bellman-Ford Algorithms
+    Shortest path from source to all vertices of the graph
+
+Work only on directed graph
+For undirected graphs convert it into directed graph
+
+Process -> For V vertices, relax V-1 times, strictly in the same order
+relaxation -> if (dist[u] + w < dist[v]) then dist[v] = dist[u] + w
+before that need to check if we can reach u first
+
+Why V-1 times ?
+==> In the worst-case scenario, a shortest path between two vertices can have at most N-1 edges,
+where N is the number of vertices
+By relaxing edges N-1 times, the Bellman-Ford algorithm ensures that the distance estimates
+for all vertices have been updated to their optimal values
+
+How to detect negative cycle ?
+==> Negative Cycle -> The sum of the total weight of connected nodes < 0
+
+In bellman ford algorithm we relax the vertices V-1 times
+If we relax more than V-1 times, there is supposed to be no change
+When the vertices can be relaxed more than V-1 times, there is a NEGATIVE CYCLE
+
