@@ -6,3 +6,10 @@ Repeating sub-problem
 Memoization -> Store the result and use it whenever it is needed
 
 1D DP array -> 1(Changing variable)
+
+
+Patters ->
+    Recursion + Memoization
+    Bottom up / Tabulation
+    LIS -> Longest Increasing subsequence
+    LCS -> Longest Common Subsequence
