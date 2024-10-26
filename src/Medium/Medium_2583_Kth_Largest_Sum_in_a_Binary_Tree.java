@@ -1,10 +1,6 @@
 // 2583. Kth Largest Sum in a Binary Tree
 package Medium;
-import java.util.Queue;
-import java.util.ArrayList;
-import java.util.List;
-import java.util.LinkedList;
-import java.util.Collections;
+import java.util.*;
 
 public class Medium_2583_Kth_Largest_Sum_in_a_Binary_Tree {
     static class TreeNode {
@@ -66,6 +62,30 @@ public class Medium_2583_Kth_Largest_Sum_in_a_Binary_Tree {
         arr.set(level, sum);
         dfs(root.left, level+1);
         dfs(root.right, level+1);
+    }
+    public long kthLargestLevelSumBetter(TreeNode root, int k) {
+        if(root == null) return -1;
+
+        PriorityQueue<Long> maxHeap = new PriorityQueue<>((a, b) -> Long.compare(b,a));
+        Queue<TreeNode> queue = new LinkedList<>();
+        queue.add(root);
+
+        while (!queue.isEmpty()) {
+            int size = queue.size();
+            long levelSum = 0;
+
+            while (size-- > 0) {
+                TreeNode node = queue.poll();
+                levelSum += node.val;
+                if (node.left != null) queue.add(node.left);
+                if (node.right != null) queue.add(node.right);
+            }
+            maxHeap.add(levelSum);
+        }
+
+        if (maxHeap.size() < k) return -1;
+        while (--k > 0) maxHeap.poll();
+        return maxHeap.poll();
     }
     public static void main(String[] args) {
         TreeNode root = new TreeNode(2);
