@@ -1,6 +1,5 @@
 // 1605. Find Valid Matrix Given Row and Column Sums
 package Medium;
-
 import java.util.Arrays;
 
 public class Medium_1605_Find_Valid_Matrix_Given_Row_and_Column_Sums {
