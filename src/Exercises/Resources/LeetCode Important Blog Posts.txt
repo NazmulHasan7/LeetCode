@@ -19,4 +19,6 @@ Greedy Algorithm
     -> https://leetcode.com/discuss/study-guide/5330283/Mastering-Greedy-Algorithms-with-LeetCode-Problems./
 
 
+Bit Manipulation
 
+    -> https://leetcode.com/discuss/interview-question/3695233/all-types-of-patterns-for-bits-manipulations-and-how-to-use-it
