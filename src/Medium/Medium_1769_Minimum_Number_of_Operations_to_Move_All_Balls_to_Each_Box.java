@@ -52,6 +52,32 @@ public class Medium_1769_Minimum_Number_of_Operations_to_Move_All_Balls_to_Each_
             answer[i] = left[i] + right[i];
         return answer;
     }
+
+    // TC -> O(n), SC -> O(1) [ignoring resultant array]
+    public static int[] minOperationsOpt(String boxes) {
+        int n = boxes.length();
+        int[] operations = new int[n];
+
+        int balls = 0, moves = 0;
+        // operations[0] = 0;
+        // Move balls from left to right
+        for (int i=0; i<n; i++) {
+            operations[i] = moves;
+            balls += boxes.charAt(i) - '0';
+            // Number of moves required to shift all the balls so far we have found
+            // is -> number of current balls + number of moves required to be in current cell
+            moves += balls;
+        }
+
+        balls = 0; moves = 0;
+        // Move balls from left to right
+        for (int i=n-1; i>=0; i--) {
+            operations[i] += moves;
+            balls += boxes.charAt(i) - '0';
+            moves += balls;
+        }
+        return operations;
+    }
     public static void main(String[] args) {
         System.out.println(Arrays.toString(minOperations("110")));
         System.out.println(Arrays.toString(minOperations("001011")));

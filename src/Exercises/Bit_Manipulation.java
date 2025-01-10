@@ -22,11 +22,17 @@ public class Bit_Manipulation {
         // 100 * 011 => 0
         return num > 0 && (num & (num-1)) == 0;
     }
+    private static int clearBit(int num, int i) {
+        // 1110 -> 1 >> (i(3)-1) -> 0100 -> ~(0100) -> 1011
+        // 1110 & 1011 -> 1010
+        return (num & ~(1 << (i-1)));
+    }
     public static void main(String[] args) {
         System.out.println(isSetBit(10, 2));
         System.out.println(isSetBit(10, 3));
         System.out.println(countSetBit(15));
         System.out.println(countSetBit(128));
         System.out.println(countSetBit(10));
+        System.out.println(clearBit(14,3));
     }
 }

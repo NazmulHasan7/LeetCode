@@ -1,0 +1,35 @@
+Boyer-Moore Voting Algorithm
+--> Finds the majority elements of the array in linear time and constant space
+
+TC -> O(n) SC -> O(1)
+
+Step 01 -> Find the candidate for the majority element
+
+Algorithm :
+
+1. if ME == current element
+	increment count -> count++
+2. else ->
+	decrement count, count--;
+3. if count == 0
+	-> ME = current element
+	-> count++
+
+
+2 3 4 3 3 -> ME -1, count 0
+i         -> Step 2 then 3 -> ME = 2, count = 1
+  i       -> Step 2 then 3 -> ME = 3, count = 1
+    i     -> Step 2 then 3 -> ME = 4, count = 1
+      i   -> Step 2 then 3 -> ME = 3, count = 1
+        i -> Step 1 -> ME = 3, count = 2
+
+ME --> 3
+
+2 2 2 3 3 -> ME -1, count 0
+i         -> Step 2 then 3 -> ME = 2, count = 1
+  i       -> Step 1 -> ME = 2, count = 2
+    i     -> Step 1 -> ME = 2, count = 3
+      i   -> Step 2 -> ME = 2, count = 2
+        i -> Step 2 -> ME = 2, count = 1
+
+ME --> 2
