@@ -6,6 +6,7 @@ import java.util.Arrays;
 import java.util.PriorityQueue;
 
 // Dijkstra's Algorithms can work with directed and undirected graphs
+// Single source shortest path algorithm -> This Dijkstra's greedy approach fails for graph with negative edges
 // Cannot work with graphs with negative edges
 public class Dijkstra_Algorithm {
     static class Pair {
