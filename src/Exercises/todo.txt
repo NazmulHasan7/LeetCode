@@ -1,0 +1,38 @@
+307. Range Sum Query - Mutable
+1943. Describe the Painting
+3361. Shift Distance Between Two Strings
+218. The Skyline Problem
+1625. Lexicographically Smallest String After Applying Operations
+3106. Lexicographically Smallest String After Operations With Constraint
+3081. Replace Question Marks in String to Minimize Its Value
+3361. Shift Distance Between Two Strings
+3304. Find the K-th Character in String Game I
+3307. Find the K-th Character in String Game II
+
+public static String lastNonEmptyString(String s) {
+        int[] freq = new int[26];
+        int[] lastOccurrence = new int[26];
+        int n = s.length();
+
+        // Before the last operation, only the most frequent characters in the original string will remain
+        int maxFreq = 0;
+
+        for (int i=0; i<n; i++) {
+            char c = s.charAt(i);
+            int idx = c - 'a';
+            freq[idx]++;
+            maxFreq = Math.max(maxFreq, freq[idx]);
+            lastOccurrence[idx] = i;
+        }
+
+        StringBuilder sb = new StringBuilder();
+        for (int i=0; i<26; i++) {
+            if (freq[i] == maxFreq)
+                sb.append((char) ('a' + i));
+        }
+        return sb.toString();
+    }
+    public static void main(String[] args) {
+        System.out.println(lastNonEmptyString("aabcbbca"));
+        System.out.println(lastNonEmptyString("abcd"));
+    }
