@@ -1,0 +1,13 @@
+Kadane's Algorithm
+
+positive + positive -> positive
+small negative + large positive -> positive
+small positive + large negative -> negative
+
+Algorithm ->
+	if sub-array sum < 0:
+		reset sub-array sum to 0
+
+LeetCode Problems ->
+53. Maximum Sub-array
+1749. Maximum Absolute Sum of Any Sub-array
