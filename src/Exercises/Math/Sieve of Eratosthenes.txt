@@ -1,0 +1,23 @@
+The sieve of Eratosthenes is one of the most efficient ways to find all primes
+smaller than n when n is smaller than 10 million or so.
+
+Following is the algorithm to find all the prime numbers less than or equal to
+a given integer n by the Eratosthenes method:
+When the algorithm terminates, all the numbers in the list that are not marked are prime.
+
+SieveOfEratosthenes(n):
+    1. Create a boolean array `isPrime` of size (n+1) and initialize all entries to true.
+       (This array will store whether a number is prime. If `isPrime[i]` is true, `i` is prime)
+    2. Set `isPrime[0]` and `isPrime[1]` to false (since 0 and 1 are not prime numbers).
+
+    3. For i = 2 to √n:
+        4. If `isPrime[i]` is true:
+            5. For j = i * i to n, incrementing by i:
+                6. Set `isPrime[j]` to false (marking multiples of i as non-prime).
+
+    7. Return all indices `i` where `isPrime[i]` is true. These are the prime numbers.
+
+
+LeetCode Questions -->
+    2523. Closest Prime Numbers in Range
+    204. Count Primes
