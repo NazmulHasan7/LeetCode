@@ -18,3 +18,4 @@ public class _001_Rename {
 // 2222. Number of Ways to Select Buildings
 // 1718. Construct the Lexicographically Largest Valid Sequence
 // 889. Construct Binary Tree from Preorder and Postorder Traversal
+// 3394. Check if Grid can be Cut into Sections
