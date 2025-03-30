@@ -3,7 +3,7 @@ package Medium;
 import java.util.ArrayList;
 import java.util.List;
 
-public class Medium_Medium_3324_Find_the_Sequence_of_Strings_Appeared_on_the_Screen {
+public class Medium_3324_Find_the_Sequence_of_Strings_Appeared_on_the_Screen {
     public static List<String> stringSequence(String target) {
         List<String> answer = new ArrayList<>();
 
