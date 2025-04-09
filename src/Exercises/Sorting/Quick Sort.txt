@@ -1,0 +1,146 @@
+### **Quick Sort: The Fastest General-Purpose Sorting Algorithm**
+
+Quick Sort is a **divide-and-conquer** algorithm that works by:
+1. **Choosing a "pivot"** element from the array.
+2. **Partitioning** the array into two subarrays:
+   - Elements **less than** the pivot.
+   - Elements **greater than** the pivot.
+3. **Recursively sorting** the subarrays.
+
+---
+
+## **⚡ Key Features**
+✅ **Average Time Complexity:** `O(n log n)` (very fast in practice)
+✅ **In-place Sorting:** Uses little extra memory (`O(log n)` stack space)
+❌ **Worst Case:** `O(n²)` (rare, happens when pivot is poorly chosen)
+
+---
+
+## **📝 Quick Sort Algorithm Steps**
+1. **Choose a pivot** (e.g., last element).
+2. **Partition** the array around the pivot.
+3. **Recursively sort** the left and right partitions.
+
+---
+
+## **🔧 Lomuto Partition Scheme (Easier to Understand)**
+### **Partition Logic:**
+- Traverse the array, moving elements `< pivot` to the left.
+- Swap the pivot into its correct position.
+
+#### **Pseudocode:**
+```
+partition(arr, low, high):
+    pivot = arr[high]  // Choose last element as pivot
+    i = low            // Tracks where to place smaller elements
+
+    for j = low to high-1:
+        if arr[j] < pivot:
+            swap(arr[i], arr[j])
+            i++
+
+    swap(arr[i], arr[high])  // Place pivot in correct position
+    return i  // Return pivot index
+```
+
+---
+
+## **🚀 Full Quick Sort Implementation (Java)**
+```java
+public class QuickSort {
+
+    // Main QuickSort function
+    public static void quickSort(int[] arr, int low, int high) {
+        if (low < high) {
+            int pivotIndex = partition(arr, low, high); // Partition
+            quickSort(arr, low, pivotIndex - 1);  // Sort left half
+            quickSort(arr, pivotIndex + 1, high); // Sort right half
+        }
+    }
+
+    // Lomuto Partition Scheme
+    private static int partition(int[] arr, int low, int high) {
+        int pivot = arr[high];  // Choose last element as pivot
+        int i = low;  // Tracks where to place smaller elements
+
+        for (int j = low; j < high; j++) {
+            if (arr[j] < pivot) {
+                swap(arr, i, j);  // Move smaller element to left
+                i++;
+            }
+        }
+
+        swap(arr, i, high);  // Place pivot in correct position
+        return i;  // Return pivot index
+    }
+
+    // Helper: Swap two elements
+    private static void swap(int[] arr, int i, int j) {
+        int temp = arr[i];
+        arr[i] = arr[j];
+        arr[j] = temp;
+    }
+
+    // Test the algorithm
+    public static void main(String[] args) {
+        int[] arr = {10, 7, 8, 9, 1, 5};
+        quickSort(arr, 0, arr.length - 1);
+        System.out.println("Sorted array: " + Arrays.toString(arr));
+    }
+}
+```
+**Output:**
+```
+Sorted array: [1, 5, 7, 8, 9, 10]
+```
+
+---
+
+## **🔍 How Partitioning Works (Example)**
+**Initial Array:** `[10, 7, 8, 9, 1, 5]`
+**Pivot = 5** (last element)
+
+1. **Loop (j = 0 to 4):**
+   - `7 < 5`? No → Skip
+   - `8 < 5`? No → Skip
+   - `9 < 5`? No → Skip
+   - `1 < 5`? **Yes** → Swap `1` with `10` → `[1, 7, 8, 9, 10, 5]`
+2. **Place Pivot:** Swap `5` with `7` → `[1, 5, 8, 9, 10, 7]`
+3. **Pivot Index = 1** → Now recursively sort left (`[1]`) and right (`[8, 9, 10, 7]`).
+
+---
+
+## **📌 Optimizations**
+1. **Randomized Pivot:**
+   - Avoid worst-case `O(n²)` by choosing a random pivot.
+   ```java
+   int randomPivot = low + (int)(Math.random() * (high - low + 1));
+   swap(arr, randomPivot, high);  // Move random pivot to last position
+   ```
+2. **Hoare’s Partition:**
+   - More efficient than Lomuto (fewer swaps).
+3. **Hybrid Approach (Introsort):**
+   - Falls back to Heap Sort if recursion depth is too high (used in C++ `std::sort`).
+
+---
+
+## **❓ FAQ**
+### **Q: When does Quick Sort perform poorly?**
+- When the pivot is always the smallest/largest element (e.g., already sorted array).
+- **Fix:** Use randomized pivot or median-of-three.
+
+### **Q: Why is Quick Sort faster than Merge Sort?**
+- Quick Sort has **better cache locality** (sequential memory access).
+- Merge Sort requires extra `O(n)` space.
+
+### **Q: Is Quick Sort stable?**
+- **No**, but stability can be forced (with extra space).
+
+---
+
+## **🎯 Final Verdict**
+- **Best for:** General-purpose sorting (default in many languages).
+- **Worst for:** Nearly sorted data (unless randomized).
+- **Next to learn:** Merge Sort (stable alternative).
+
+Would you like a step-by-step breakdown of **Hoare’s Partition** next? 😊
