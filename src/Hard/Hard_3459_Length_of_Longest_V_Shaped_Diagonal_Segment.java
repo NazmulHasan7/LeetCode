@@ -1,5 +1,6 @@
 // 3459. Length of Longest V-Shaped Diagonal Segment
 package Hard;
+import java.util.Arrays;
 
 public class Hard_3459_Length_of_Longest_V_Shaped_Diagonal_Segment {
     private static final int[][] DIRECTIONS = new int[][] {
