@@ -1,6 +1,6 @@
 package Easy;
 import java.util.*;
 
-public class ______test {
+public class ____test {
 
 }
