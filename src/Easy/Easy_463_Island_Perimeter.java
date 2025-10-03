@@ -10,19 +10,18 @@ public class Easy_463_Island_Perimeter {
         for (int r=0; r<rows; r++) {
             for (int c=0; c<cols; c++) {
                 if (grid[r][c] == 1) {
-                    total += 4;
                     // if land on the lower grid
-                    if (r+1<rows && grid[r+1][c] == 1)
-                        total--;
+                    if (r<rows-1 && grid[r+1][c] == 0 || r+1==rows)
+                        total++;
                     // if land on the upper grid
-                    if (r-1>=0 && grid[r-1][c] == 1)
-                        total--;
+                    if (r>0 && grid[r-1][c] == 0 || r==0)
+                        total++;
                     // if land on the left grid
-                    if (c-1>=0 && grid[r][c-1] == 1)
-                        total--;
+                    if (c>0 && grid[r][c-1] == 0 || c==0)
+                        total++;
                     // if land on the right grid
-                    if (c+1<cols && grid[r][c+1] == 1)
-                        total--;
+                    if (c<cols-1 && grid[r][c+1] == 0 || c+1==cols)
+                        total++;
                 }
             }
         } return total;

@@ -11,7 +11,6 @@ public class Medium_462_Minimum_Moves_to_Equal_Array_Elements_II {
 
         for (int num : nums)
             ops += Math.abs(median - num);
-
         return ops;
     }
     public static void main(String[] args) {
