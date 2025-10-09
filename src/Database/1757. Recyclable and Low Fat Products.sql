@@ -10,4 +10,6 @@ insert into Products (product_id, low_fats, recyclable) values ('3', 'Y', 'Y');
 insert into Products (product_id, low_fats, recyclable) values ('4', 'N', 'N');
 
 -- 1757. Recyclable and Low Fat Products
-Select product_id From Products Where low_fats == 'Y' and recyclable == 'Y';
+SELECT product_id
+FROM Products
+WHERE low_fats = 'Y' AND recyclable = 'Y';

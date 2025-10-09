@@ -8,6 +8,6 @@ Truncate table Address;
 insert into Address (addressId, personId, city, state) values ('1', '2', 'New York City', 'New York');
 insert into Address (addressId, personId, city, state) values ('2', '3', 'Leetcode', 'California');
 
--- Solution
+-- EASY 175. Combine Two Tables
 SELECT P.firstName, P.lastName, A.city, A.state
 FROM Person P LEFT JOIN Address A ON P.personId = A.personId;

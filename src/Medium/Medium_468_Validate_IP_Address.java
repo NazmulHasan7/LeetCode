@@ -2,6 +2,7 @@
 package Medium;
 
 public class Medium_468_Validate_IP_Address {
+
     public static String validIPAddress(String queryIP) {
         if (queryIP.contains(".") && !queryIP.startsWith(".") && !queryIP.endsWith(".")) {
             String[] x = queryIP.split("\\.");

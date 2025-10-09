@@ -1,11 +1,13 @@
-Create table If Not Exists Department (id int, revenue int, month varchar(5))
-Truncate table Department
-insert into Department (id, revenue, month) values ('1', '8000', 'Jan')
-insert into Department (id, revenue, month) values ('2', '9000', 'Jan')
-insert into Department (id, revenue, month) values ('3', '10000', 'Feb')
-insert into Department (id, revenue, month) values ('1', '7000', 'Feb')
-insert into Department (id, revenue, month) values ('1', '6000', 'Mar')
+-- 1179. Reformat Department Table
+Create table If Not Exists Department (id int, revenue int, month varchar(5));
+Truncate table Department;
+insert into Department (id, revenue, month) values ('1', '8000', 'Jan');
+insert into Department (id, revenue, month) values ('2', '9000', 'Jan');
+insert into Department (id, revenue, month) values ('3', '10000', 'Feb');
+insert into Department (id, revenue, month) values ('1', '7000', 'Feb');
+insert into Department (id, revenue, month) values ('1', '6000', 'Mar');
 
+-- 1179. Reformat Department Table
 SELECT id,
     SUM(IF(month = 'Jan', revenue, null)) AS Jan_Revenue,
     SUM(IF(month = 'Feb', revenue, null)) AS Feb_Revenue,
@@ -19,4 +21,5 @@ SELECT id,
     SUM(IF(month = 'Oct', revenue, null)) AS Oct_Revenue,
     SUM(IF(month = 'Nov', revenue, null)) AS Nov_Revenue,
     SUM(IF(month = 'Dec', revenue, null)) AS Dec_Revenue
-FROM Department GROUP BY id
+FROM Department
+GROUP BY id;
