@@ -1,0 +1,12 @@
+### GROUP_CONCAT() function is an aggregate function that concatenates non-NULL
+values from multiple rows within a group into a single string.
+
+SELECT category, GROUP_CONCAT(product_name) AS products_list
+FROM products
+GROUP BY category;
+
+### IF() function is a control flow function used within SELECT statements
+or other expressions to return a value based on a condition. syntax.
+
+SELECT name, IF(age >= 18, 'Adult', 'Minor') AS age_group FROM users;
+
